@@ -7,3 +7,4 @@ A new Flutter project.
 This project is a starting point for a Flutter application.
 
 After pulling the project, you should run `make start`
+After adding some annotations, you must run `make sync` to generating files

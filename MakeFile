@@ -1,14 +1,14 @@
 .PHONY: generate
 
 start: 
-		pubget
-		sync
+	pubget
+	sync
 
 pubget:
-		flutter pub get
+	flutter pub get
 
 sync_watch:
-		flutter pub run build_runner watch --delete-conflicting-outputs
+	flutter pub run build_runner watch --delete-conflicting-outputs
 
 sync:
-    flutter pub run build_runner build --delete-conflicting-outputs
+	flutter pub run build_runner build --delete-conflicting-outputs

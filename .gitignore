@@ -80,3 +80,4 @@ windows/flutter/generated_plugins.cmake
 # Ignore injectable generated files
 **/*.injectable.dart
 **/*.config.dart
+**/*.gr.dart
