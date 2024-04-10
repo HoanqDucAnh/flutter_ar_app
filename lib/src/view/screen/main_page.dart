@@ -1,6 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_ar_app/core/initializer/app_initializer.dart';
 import '../../../core/router/router.dart';
+import '../shared_widget/shared_widget.dart';
 
 @RoutePage()
 class MainPage extends StatelessWidget {
@@ -8,32 +10,29 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AutoTabsScaffold(
-      routes: const [
-        HomeRouteTab(),
-        MapRouteTab(),
-        ExploreRouteTab(),
-      ],
-      bottomNavigationBuilder: (_, tabsRouter) {
-        return BottomNavigationBar(
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.map),
-              label: 'Map',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.explore),
-              label: 'Explore',
-            ),
-          ],
-          onTap: tabsRouter.setActiveIndex,
-          currentIndex: tabsRouter.activeIndex,
-        );
-      },
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('flutter'),
+        leading: Builder(builder: (context) {
+          return IconButton(
+            icon: const Icon(Icons.menu),
+            onPressed: () {
+              Scaffold.of(context).openDrawer();
+            },
+          );
+        }),
+      ),
+      drawer: const CustomDrawer(),
+      body: AutoTabsScaffold(
+        routes: const [
+          HomeRouteTab(),
+          MapRouteTab(),
+          ExploreRouteTab(),
+        ],
+        bottomNavigationBuilder: (_, tabsRouter) {
+          return CustomNavigationBottomBar(tabsRouter: tabsRouter);
+        },
+      ),
     );
   }
 }
