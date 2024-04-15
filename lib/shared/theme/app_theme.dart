@@ -9,9 +9,27 @@ class AppTheme {
   AppTheme(this.appColors);
 
   ThemeData get themeData => ThemeData(
-        primaryColor: appColors.primaryColor,
-        appBarTheme: AppBarTheme(
-          color: appColors.primaryColor,
-        ),
-      );
+      primaryColor: appColors.primaryColor,
+      appBarTheme: AppBarTheme(
+        color: appColors.primaryColor,
+        elevation: 0,
+        iconTheme: IconThemeData(color: appColors.secondaryColor),
+      ),
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+        elevation: 0,
+      ),
+      colorScheme: ColorScheme(
+        primary: appColors.onSecondaryColor,
+        onPrimary: appColors.textSecondaryColor,
+        secondary: appColors.secondaryColor,
+        onSecondary: appColors.onSecondaryColor,
+        error: appColors.errorColor,
+        onError: appColors.onErrorColor,
+        background: appColors.primaryColor,
+        onBackground: appColors.onBackgroundColor,
+        surface: appColors.surfaceColor,
+        onSurface: appColors.onSecondaryColor,
+        brightness: Brightness.light,
+        shadow: appColors.primaryColor,
+      ));
 }

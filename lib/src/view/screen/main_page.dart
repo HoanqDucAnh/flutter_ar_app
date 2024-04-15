@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ar_app/core/initializer/app_initializer.dart';
 import '../../../core/router/router.dart';
 import '../shared_widget/shared_widget.dart';
 
@@ -10,17 +9,12 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('flutter'),
-        leading: Builder(builder: (context) {
-          return IconButton(
-            icon: const Icon(Icons.menu),
-            onPressed: () {
-              Scaffold.of(context).openDrawer();
-            },
-          );
-        }),
+      key: scaffoldKey,
+      appBar: CustomAppBar(
+        appName: 'Flutter AR App',
+        scaffoldKey: scaffoldKey,
       ),
       drawer: const CustomDrawer(),
       body: AutoTabsScaffold(

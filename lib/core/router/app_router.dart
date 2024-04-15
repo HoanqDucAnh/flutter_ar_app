@@ -11,10 +11,28 @@ part 'app_router.gr.dart';
 class AppRouter extends _$AppRouter {
   @override
   List<AutoRoute> get routes => [
-        AutoRoute(page: MainRoute.page, initial: true, children: [
-          AutoRoute(page: HomeRouteTab.page),
-          AutoRoute(page: MapRouteTab.page),
-          AutoRoute(page: ExploreRouteTab.page),
-        ]),
+        // AutoRoute(page: MainRoute.page, initial: true, children: [
+        //   AutoRoute(page: HomeRouteTab.page),
+        //   AutoRoute(page: MapRouteTab.page),
+        //   AutoRoute(page: ExploreRouteTab.page),
+        // ]),
+        CustomRoute(
+            page: MainRoute.page,
+            initial: true,
+            transitionsBuilder: TransitionsBuilders.fadeIn,
+            children: [
+              CustomRoute(
+                  page: HomeRouteTab.page,
+                  transitionsBuilder: TransitionsBuilders.slideRightWithFade,
+                  durationInMilliseconds: 2000),
+              CustomRoute(
+                  page: MapRouteTab.page,
+                  transitionsBuilder: TransitionsBuilders.slideRightWithFade,
+                  durationInMilliseconds: 2000),
+              CustomRoute(
+                  page: ExploreRouteTab.page,
+                  transitionsBuilder: TransitionsBuilders.slideRightWithFade,
+                  durationInMilliseconds: 2000),
+            ]),
       ];
 }
