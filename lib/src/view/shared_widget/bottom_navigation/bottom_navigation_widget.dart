@@ -11,6 +11,7 @@ class CustomNavigationBottomBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppColors appColors = getIt<AppColors>();
     return BottomNavigationBar(
+      landscapeLayout: BottomNavigationBarLandscapeLayout.centered,
       items: const [
         BottomNavigationBarItem(
           icon: Icon(

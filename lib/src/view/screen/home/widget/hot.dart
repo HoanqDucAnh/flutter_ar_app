@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ar_app/core/initializer/app_initializer.dart';
+import 'package:flutter_ar_app/shared/constant/layout_constant.dart';
 import 'package:flutter_ar_app/shared/shared.dart';
 
 class HotSection extends StatefulWidget {
@@ -14,9 +15,10 @@ class _HotSectionState extends State<HotSection> {
   Widget build(BuildContext context) {
     final AppColors appColors = getIt<AppColors>();
     final AppTextStyle appTextStyle = getIt<AppTextStyle>();
+    final LayoutConstants layoutConstants = getIt<LayoutConstants>();
 
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 5),
+      padding: layoutConstants.headerPadding,
       height: AppDimen.of(context).screenHeight * 0.4,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -31,12 +33,12 @@ class _HotSectionState extends State<HotSection> {
             ),
             width: AppDimen.of(context).screenWidth * 0.7,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: layoutConstants.mediumBorderRadius,
             ),
             child: Stack(
               children: <Widget>[
                 ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: layoutConstants.mediumBorderRadius,
                   child: Image.asset(
                     'lib/core/resources/images/museum_welcome_images/welcome${index + 1}.jpg',
                     height: AppDimen.of(context).screenHeight * 0.4,
@@ -52,7 +54,7 @@ class _HotSectionState extends State<HotSection> {
                     padding: const EdgeInsets.all(8.0),
                     decoration: BoxDecoration(
                       color: appColors.primaryColor.withOpacity(0.8),
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: layoutConstants.smallBorderRadius,
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -91,12 +93,12 @@ class _HotSectionState extends State<HotSection> {
                             children: [
                               Text(
                                 'Chi tiết ',
-                                style: appTextStyle.s12w400TextSecondary,
+                                style: appTextStyle.s12w400TextPrimary,
                               ),
                               Icon(
                                 Icons.arrow_forward_outlined,
                                 size: 16,
-                                color: appColors.primaryColor,
+                                color: appColors.textPrimaryColor,
                               ), // Add the arrow icon
                             ],
                           ),

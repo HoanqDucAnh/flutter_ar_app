@@ -3,11 +3,16 @@ import 'core/initializer/initializer.dart';
 
 import 'shared/shared.dart';
 import 'core/router/router.dart';
+import 'package:camera/camera.dart';
 import 'src/view/view.dart';
 import 'src/view/shared_widget/shared_widget.dart';
 
-void main() {
+late List<CameraDescription> cameras;
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   configureDependencies();
+  cameras = await availableCameras();
   runApp(const MyApp());
 }
 

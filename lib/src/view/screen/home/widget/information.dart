@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ar_app/core/initializer/app_initializer.dart';
 import 'package:flutter_ar_app/shared/color/app_colors.dart';
+import 'package:flutter_ar_app/shared/shared.dart';
 
 class InformationSection extends StatefulWidget {
   const InformationSection({super.key});
@@ -11,11 +12,12 @@ class InformationSection extends StatefulWidget {
 
 class _InformationSectionState extends State<InformationSection> {
   final AppColors appColors = getIt<AppColors>();
+  final LayoutConstants layoutConstants = getIt<LayoutConstants>();
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 5),
+      padding: layoutConstants.headerPadding,
       child: ListView.builder(
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
@@ -30,8 +32,8 @@ class _InformationSectionState extends State<InformationSection> {
 
   Widget buildNewsCard(BuildContext context) {
     return Card(
-      elevation: 0,
-      color: Colors.white,
+      elevation: 1,
+      color: appColors.primaryColor,
       child: ListTile(
         leading: SizedBox(
           width: 60,
@@ -41,7 +43,7 @@ class _InformationSectionState extends State<InformationSection> {
               elevation: 5,
               shadowColor: Colors.black,
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: layoutConstants.smallBorderRadius,
                 child: Image.asset(
                   'lib/core/resources/images/museum_welcome_images/welcome1.jpg',
                   fit: BoxFit.cover,

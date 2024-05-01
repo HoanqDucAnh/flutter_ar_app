@@ -9,7 +9,8 @@ class CustomCircleAvatar extends StatelessWidget {
       padding: const EdgeInsets.only(right: 16),
       child: const CircleAvatar(
         radius: 15,
-        backgroundImage: AssetImage('assets/images/avatar.jpg'),
+        backgroundImage: AssetImage(
+            'lib/core/resources/images/museum_welcome_images/welcome1.jpg'),
       ),
     );
   }
