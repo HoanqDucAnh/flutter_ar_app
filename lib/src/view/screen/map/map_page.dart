@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
-import '../../shared_widget/shared_widget.dart';
 import 'package:flutter_ar_app/core/initializer/app_initializer.dart';
 import 'package:flutter_ar_app/core/router/app_router.dart';
 

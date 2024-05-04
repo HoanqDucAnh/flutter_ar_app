@@ -1,6 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:injectable/injectable.dart';
+import 'package:flutter/material.dart';
 import '../../src/view/view.dart';
+import 'package:camera/camera.dart';
 
 part 'app_router.gr.dart';
 
@@ -31,6 +33,10 @@ class AppRouter extends _$AppRouter {
                   durationInMilliseconds: 2000),
               CustomRoute(
                   page: ExploreRouteTab.page,
+                  transitionsBuilder: TransitionsBuilders.slideRightWithFade,
+                  durationInMilliseconds: 2000),
+              CustomRoute(
+                  page: CameraRouteTab.page,
                   transitionsBuilder: TransitionsBuilders.slideRightWithFade,
                   durationInMilliseconds: 2000),
             ]),
