@@ -40,19 +40,8 @@ class _ScrollAwareFloatingButtonState extends State<ScrollAwareFloatingButton> {
       duration: const Duration(milliseconds: 300),
       child: FloatingActionButton(
         elevation: 1,
-        onPressed: () async {
-          final CameraController controller = CameraController(
-            cameras[0],
-            ResolutionPreset.medium,
-          );
-
-          try {
-            await controller.initialize();
-            getIt<AppRouter>().navigate(CameraRouteTab(camera: cameras[1]));
-          } on CameraException catch (e) {
-            // Handle error
-            print(e);
-          }
+        onPressed: () {
+          getIt<AppRouter>().push(const CameraRouteTab());
         },
         heroTag: 'Camera',
         backgroundColor: appColors.secondaryColor.withOpacity(0.8),

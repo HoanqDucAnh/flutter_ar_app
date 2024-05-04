@@ -4,7 +4,7 @@ enum CameraStatus { initial, loading, success, failure }
 
 class CameraState extends Equatable {
   const CameraState({
-    required this.status,
+    this.status = CameraStatus.initial,
     this.error,
   });
 
@@ -22,5 +22,10 @@ class CameraState extends Equatable {
       status: status ?? this.status,
       error: error,
     );
+  }
+
+  @override
+  String toString() {
+    return 'CameraState { status: $status, error: $error }';
   }
 }
