@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ar_app/src/view/screen/map/info_panel.dart';
+import 'package:flutter_ar_app/src/view/screen/map/info_card.dart';
+import 'package:flutter_ar_app/src/model/artifact.dart';
 
 class Point extends StatelessWidget {
-  final double x;
-  final double y;
   static const buttonSize = 10.0;
   final OverlayPortalController _overlayPortalController = OverlayPortalController();
+  final Artifact artifact;
 
   Point({
     super.key,
-    required this.x,
-    required this.y,
+    required this.artifact
   });
 
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      left: x,
-      top: y,
+      left: artifact.x,
+      top: artifact.y,
       child: ElevatedButton(
         onPressed: () {
           _overlayPortalController.show();
@@ -40,8 +39,9 @@ class Point extends StatelessWidget {
                     ),
                   ),
                 ),
-                Info(
-                  overlayPortalController: _overlayPortalController
+                InfoCard(
+                  overlayPortalController: _overlayPortalController,
+                  artifact: artifact
                 )
               ]
             );
