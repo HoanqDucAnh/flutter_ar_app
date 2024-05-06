@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/painting.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_ar_app/core/initializer/app_initializer.dart';
 import 'package:flutter_ar_app/core/router/app_router.dart';
 import 'package:flutter_ar_app/shared/constant/layout_constant.dart';
@@ -46,17 +49,12 @@ class _ExplorePageTabState extends State<ExplorePageTab> {
           padding: layoutConstants.headerPadding,
           child: Text('Khám phá', style: appTextStyle.h3TextPrimary),
         ),
-        Expanded(
+        const Expanded(
           child: Padding(
-            padding: layoutConstants.headerPadding,
-            child: const ExploreList(),
+            padding: EdgeInsets.symmetric(horizontal: 8.0),
+            child: ExploreList(),
           ),
         ),
-        // FloatingActionButton(
-        //   onPressed: () => AutoRouter.of(context).push(
-        //     const CameraRouteTab(),
-        //   ),
-        // ),
       ],
     );
   }

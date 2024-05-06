@@ -17,17 +17,17 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
-    return SafeArea(
-      top: false,
-      bottom: false,
-      child: Scaffold(
-        key: scaffoldKey,
-        appBar: CustomAppBar(
-          appName: 'Flutter AR App',
-          scaffoldKey: scaffoldKey,
-        ),
-        drawer: const CustomDrawer(),
-        body: AutoTabsScaffold(
+    return MediaQuery.removePadding(
+      context: context,
+      removeBottom: true,
+      child: SafeArea(
+        bottom: false,
+        top: false,
+        child: AutoTabsScaffold(
+          appBarBuilder: (context, tabsRouter) => CustomAppBar(
+            appName: 'Flutter AR App',
+            scaffoldKey: scaffoldKey,
+          ),
           routes: const [
             HomeRouteTab(),
             MapRouteTab(),
@@ -36,6 +36,8 @@ class _MainPageState extends State<MainPage> {
           bottomNavigationBuilder: (_, tabsRouter) {
             return CustomNavigationBottomBar(tabsRouter: tabsRouter);
           },
+          resizeToAvoidBottomInset: false,
+          extendBody: true,
         ),
       ),
     );

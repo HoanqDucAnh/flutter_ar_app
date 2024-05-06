@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
@@ -5,11 +7,19 @@ import 'package:injectable/injectable.dart';
 class AppColors {
   // Primary & secondary color
   Color get primaryColor => const Color(0xFFECE4D0);
+  Color primaryColorWithOpacity(double opacity) =>
+      primaryColor.withOpacity(opacity);
   Color get secondaryColor => const Color(0xFFFFCD00);
+  Color secondaryColorWithOpacity(double opacity) =>
+      secondaryColor.withOpacity(opacity);
 
   // Text color
   Color get textPrimaryColor => const Color(0xFF393b3b);
+  Color textPrimaryColorWithOpacity(double opacity) =>
+      textPrimaryColor.withOpacity(opacity);
   Color get textSecondaryColor => const Color(0xFFDAC0A3);
+  Color textSecondaryColorWithOpacity(double opacity) =>
+      textSecondaryColor.withOpacity(opacity);
 
   // Linear color
   Color get linearColor1 => const Color(0xFFFFCD00);

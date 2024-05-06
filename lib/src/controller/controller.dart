@@ -1,1 +1,2 @@
-export 'camera/camera_util.dart';
+export 'camera/camera_utils.dart';
+export 'rive/rive_utils.dart';
