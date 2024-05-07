@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ar_app/core/initializer/app_initializer.dart';
+import 'package:flutter_ar_app/main.dart';
 import 'package:flutter_ar_app/shared/color/app_colors.dart';
 import 'package:camera/camera.dart';
+import 'package:flutter_ar_app/core/router/app_router.dart';
 
 class ScrollAwareFloatingButton extends StatefulWidget {
   final ScrollController scrollController;
@@ -32,12 +34,15 @@ class _ScrollAwareFloatingButtonState extends State<ScrollAwareFloatingButton> {
   @override
   Widget build(BuildContext context) {
     AppColors appColors = getIt<AppColors>();
+
     return AnimatedOpacity(
       opacity: _showButton ? 1.0 : 0.0,
       duration: const Duration(milliseconds: 300),
       child: FloatingActionButton(
         elevation: 1,
-        onPressed: () async {},
+        onPressed: () {
+          getIt<AppRouter>().push(const CameraRouteTab());
+        },
         heroTag: 'Camera',
         backgroundColor: appColors.secondaryColor.withOpacity(0.8),
         child: const Icon(Icons.camera_alt),

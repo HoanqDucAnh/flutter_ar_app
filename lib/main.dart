@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'core/initializer/initializer.dart';
 
 import 'shared/shared.dart';
 import 'core/router/router.dart';
-import 'package:camera/camera.dart';
-import 'src/view/view.dart';
-import 'src/view/shared_widget/shared_widget.dart';
-
-late List<CameraDescription> cameras;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   configureDependencies();
-  cameras = await availableCameras();
-  runApp(const MyApp());
+  runApp(
+    const MyApp(),
+  );
 }
 
 class MyApp extends StatelessWidget {

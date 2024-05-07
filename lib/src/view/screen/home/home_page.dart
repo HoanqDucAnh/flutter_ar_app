@@ -62,13 +62,6 @@ class _HomePageTabState extends State<HomePageTab> {
             ],
           ),
         ),
-        Positioned(
-          right: 20,
-          bottom: 20,
-          child: ScrollAwareFloatingButton(
-            scrollController: scrollController,
-          ),
-        ),
       ],
     );
   }
