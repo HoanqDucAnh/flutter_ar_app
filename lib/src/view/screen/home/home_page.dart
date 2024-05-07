@@ -50,7 +50,7 @@ class _HomePageTabState extends State<HomePageTab> {
                   style: appTextStyle.h4TextPrimary,
                 ),
               ),
-              //const IntroductionSection(),
+              const IntroductionSection(),
               Padding(
                 padding: layoutConstants.headerPadding,
                 child: Text(

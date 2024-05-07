@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_ar_app/core/initializer/app_initializer.dart';
-import 'package:flutter_ar_app/core/router/app_router.dart';
 import 'package:flutter_ar_app/shared/constant/layout_constant.dart';
 import 'package:flutter_ar_app/shared/font/app_text_style.dart';
 import './widget/widget.dart';
@@ -38,8 +35,8 @@ class _ExplorePageTabState extends State<ExplorePageTab> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              PillButton(text: 'Tất cả', isSelected: false, onPressed: () {}),
-              PillButton(text: 'Máy bay', isSelected: true, onPressed: () {}),
+              PillButton(text: 'Máy bay', isSelected: false, onPressed: () {}),
+              PillButton(text: 'Vũ khí', isSelected: true, onPressed: () {}),
               PillButton(
                   text: 'Trực thăng', isSelected: false, onPressed: () {}),
             ],
