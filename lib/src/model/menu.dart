@@ -26,11 +26,11 @@ List<Menu> sidebarMenus = [
     tab: const HomeRouteTab(),
   ),
   Menu(
-    title: "Search",
+    title: "Map",
     rive: RiveModel(
-        src: "assets/RiveAssets/icons.riv",
-        artboard: "SEARCH",
-        stateMachineName: "SEARCH_Interactivity"),
+        src: "lib/core/resources/rive_assets/nav_icons.riv",
+        artboard: "ONLINE",
+        stateMachineName: "State Machine 1"),
     tab: const MapRouteTab(),
   ),
   Menu(

@@ -11,7 +11,7 @@ import 'side_menu.dart';
 class SideBar extends StatefulWidget {
   final ValueNotifier<int> selectedMenuIndex;
 
-  const SideBar({super.key, required this.selectedMenuIndex});
+  const SideBar({super.key,required this.selectedMenuIndex});
 
   @override
   State<SideBar> createState() => _SideBarState();
@@ -44,8 +44,8 @@ class _SideBarState extends State<SideBar> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const InfoCard(
-                name: "Abu Anwar",
-                bio: "YouTuber",
+                name: "Air Force and Air Defence",
+                bio: "Museum",
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 24, top: 32, bottom: 16),
@@ -81,16 +81,16 @@ class _SideBarState extends State<SideBar> {
                     );
                   })
                   .toList(),
-              Padding(
-                padding: const EdgeInsets.only(left: 24, top: 40, bottom: 16),
-                child: Text(
-                  "History".toUpperCase(),
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleMedium!
-                      .copyWith(color: Colors.white70),
-                ),
-              ),
+              // Padding(
+              //   padding: const EdgeInsets.only(left: 24, top: 40, bottom: 16),
+              //   child: Text(
+              //     "History".toUpperCase(),
+              //     style: Theme.of(context)
+              //         .textTheme
+              //         .titleMedium!
+              //         .copyWith(color: Colors.white70),
+              //   ),
+              // ),
               // ...sidebarMenus2
               //     .map((menu) => SideMenu(
               //           menu: menu,

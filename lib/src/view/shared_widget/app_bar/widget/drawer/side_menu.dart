@@ -21,7 +21,7 @@ class SideMenu extends StatelessWidget {
     return Column(
       children: [
         const Padding(
-          padding: EdgeInsets.only(left: 24),
+          padding: EdgeInsets.only(left: 24, right: 24),
           child: Divider(color: Colors.white24, height: 1),
         ),
         Stack(

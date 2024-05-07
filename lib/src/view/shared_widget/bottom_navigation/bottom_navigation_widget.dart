@@ -12,8 +12,9 @@ import 'package:flutter_ar_app/src/view/shared_widget/bottom_navigation/utils/co
 import 'package:rive/rive.dart';
 
 class CustomNavigationBottomBar extends StatefulWidget {
-  const CustomNavigationBottomBar({super.key, required this.tabsRouter});
+  const CustomNavigationBottomBar({super.key, required this.tabsRouter, required this.selectedMenuIndex});
   final TabsRouter tabsRouter;
+  final ValueNotifier<int> selectedMenuIndex;
 
   @override
   State<CustomNavigationBottomBar> createState() =>
@@ -22,12 +23,19 @@ class CustomNavigationBottomBar extends StatefulWidget {
 
 class _CustomNavigationBottomBarState extends State<CustomNavigationBottomBar> {
   late SMIBool searchTrigger;
-  RiveAsset selectedNavItem = bottomNavbarItems[0];
+  late RiveAsset selectedNavItem;
+
+  @override
+  void initState() {
+    super.initState();
+    selectedNavItem = bottomNavbarItems[widget.selectedMenuIndex.value];
+  }
 
   @override
   Widget build(BuildContext context) {
     final AppColors appColors = getIt<AppColors>();
     final LayoutConstants layoutConstants = getIt<LayoutConstants>();
+    selectedNavItem = bottomNavbarItems[widget.selectedMenuIndex.value];
 
     return Padding(
       padding: const EdgeInsets.only(bottom: 8),
@@ -47,6 +55,7 @@ class _CustomNavigationBottomBarState extends State<CustomNavigationBottomBar> {
                   child: GestureDetector(
                     onTap: () {
                       widget.tabsRouter.setActiveIndex(index);
+                      widget.selectedMenuIndex.value = index;
                       bottomNavbarItems[index].input!.change(true);
                       if (selectedNavItem != bottomNavbarItems[index]) {
                         setState(() {
