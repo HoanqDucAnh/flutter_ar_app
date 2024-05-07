@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
@@ -49,7 +50,23 @@ class AppTextStyle {
         color: _appColors.textPrimaryColor,
       );
 
+  TextStyle get h5TextPrimary => _baseTextStyle.copyWith(
+        fontSize: 16,
+        fontWeight: FontWeight.w700,
+        color: _appColors.textPrimaryColor,
+      );
+
   //Normal Text
+  TextStyle get normalTextPrimary => _baseTextStyle.copyWith(
+        fontSize: 14,
+        fontWeight: FontWeight.w400,
+        color: _appColors.textPrimaryColor,
+      );
+  TextStyle get normalTextSecondary => _baseTextStyle.copyWith(
+        fontSize: 14,
+        fontWeight: FontWeight.w400,
+        color: _appColors.primaryColor,
+      );
   TextStyle get s12w400TextPrimary => s12TextPrimary(FontWeight.w400);
   TextStyle get s14w400TextPrimary => s14TextPrimary(FontWeight.w400);
   TextStyle get s16w400TextPrimary => s16TextPrimary(FontWeight.w400);

@@ -12,6 +12,7 @@ class InformationSection extends StatefulWidget {
 
 class _InformationSectionState extends State<InformationSection> {
   final AppColors appColors = getIt<AppColors>();
+  final AppTextStyle appTextStyle = getIt<AppTextStyle>();
   final LayoutConstants layoutConstants = getIt<LayoutConstants>();
 
   @override
@@ -52,8 +53,14 @@ class _InformationSectionState extends State<InformationSection> {
             ),
           ),
         ),
-        title: const Text('News Title'),
-        subtitle: const Text('News Content'),
+        title: Text(
+          'News Title',
+          style: appTextStyle.normalTextPrimary,
+        ),
+        subtitle: Text(
+          'News Content',
+          style: appTextStyle.normalTextPrimary,
+        ),
         onTap: () {},
         trailing: Icon(
           Icons.arrow_forward_ios,

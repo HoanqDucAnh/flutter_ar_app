@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import '../../../core/router/router.dart';   
+import '../../../core/router/router.dart';
 import '../shared_widget/shared_widget.dart';
 
 @RoutePage()
@@ -33,17 +33,17 @@ class _MainPageState extends State<MainPage> {
         ),
         body: AutoTabsScaffold(
 // =======
-    // return MediaQuery.removePadding(
-    //   context: context,
-    //   removeBottom: true,
-    //   child: SafeArea(
-    //     bottom: false,
-    //     top: false,
-    //     child: AutoTabsScaffold(
-    //       appBarBuilder: (context, tabsRouter) => CustomAppBar(
-    //         appName: 'Flutter AR App',
-    //         scaffoldKey: scaffoldKey,
-    //       ),
+          // return MediaQuery.removePadding(
+          //   context: context,
+          //   removeBottom: true,
+          //   child: SafeArea(
+          //     bottom: false,
+          //     top: false,
+          //     child: AutoTabsScaffold(
+          //       appBarBuilder: (context, tabsRouter) => CustomAppBar(
+          //         appName: 'Flutter AR App',
+          //         scaffoldKey: scaffoldKey,
+          //       ),
 // >>>>>>> main
           routes: const [
             HomeRouteTab(),
