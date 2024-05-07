@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import '../../../core/router/router.dart';
+import '../../../core/router/router.dart';   
 import '../shared_widget/shared_widget.dart';
 
 @RoutePage()
@@ -13,6 +13,7 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   final ScrollController _scrollController = ScrollController();
+  final ValueNotifier<int> _selectedMenuIndex = ValueNotifier(0);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,7 @@ class _MainPageState extends State<MainPage> {
           appName: 'Flutter AR App',
           scaffoldKey: scaffoldKey,
         ),
-        drawer: const CustomDrawer(),
+        drawer: CustomDrawer(selectedMenuIndex: _selectedMenuIndex),
         body: AutoTabsScaffold(
           routes: const [
             HomeRouteTab(),
