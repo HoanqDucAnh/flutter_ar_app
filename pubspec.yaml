@@ -42,10 +42,11 @@ dependencies:
   flutter_screenutil: ^5.9.0
   circular_motion: ^0.0.6
   camera: ^0.10.5+9
+  rive: ^0.13.3
   equatable: ^2.0.5
   flutter_bloc: ^8.1.5
   flutter_masonry_view: ^0.0.2
-  rive: ^0.9.1
+  # rive: ^0.9.1
 
 dev_dependencies:
   flutter_test:
@@ -75,6 +76,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - lib/core/resources/images/museum_welcome_images/
+    - assets/RiveAssets/
     - lib/core/resources/rive_assets/
 
   # An image asset can refer to one or more resolution-specific "variants", see
