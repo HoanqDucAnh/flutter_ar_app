@@ -31,6 +31,5 @@ class AppTheme {
         surface: appColors.surfaceColor,
         onSurface: appColors.onSecondaryColor,
         brightness: Brightness.light,
-        shadow: appColors.primaryColor,
       ));
 }

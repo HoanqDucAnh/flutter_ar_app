@@ -1,4 +1,4 @@
-import 'dart:ui';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +21,7 @@ class AppTextStyle {
   static const _defaultLetterSpacing = 0.03;
 
   static const _baseTextStyle = TextStyle(
-    fontFamily: 'Averta',
+    fontFamily: 'Poppins',
     letterSpacing: _defaultLetterSpacing,
   );
 
@@ -52,19 +52,19 @@ class AppTextStyle {
 
   TextStyle get h5TextPrimary => _baseTextStyle.copyWith(
         fontSize: 16,
-        fontWeight: FontWeight.w700,
+        fontWeight: FontWeight.w400,
         color: _appColors.textPrimaryColor,
       );
 
   //Normal Text
   TextStyle get normalTextPrimary => _baseTextStyle.copyWith(
         fontSize: 14,
-        fontWeight: FontWeight.w400,
+        fontWeight: FontWeight.w500,
         color: _appColors.textPrimaryColor,
       );
   TextStyle get normalTextSecondary => _baseTextStyle.copyWith(
         fontSize: 14,
-        fontWeight: FontWeight.w400,
+        fontWeight: FontWeight.w500,
         color: _appColors.primaryColor,
       );
   TextStyle get s12w400TextPrimary => s12TextPrimary(FontWeight.w400);
