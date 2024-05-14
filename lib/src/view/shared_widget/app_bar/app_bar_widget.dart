@@ -1,27 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ar_app/core/initializer/app_initializer.dart';
+import 'package:flutter_ar_app/shared/color/app_colors.dart';
+import 'package:flutter_ar_app/shared/constant/layout_constant.dart';
 import 'package:flutter_ar_app/src/view/shared_widget/app_bar/widget/avatar.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final String appName;
-  final GlobalKey<ScaffoldState> scaffoldKey;
-
   const CustomAppBar({
     super.key,
-    required this.appName,
-    required this.scaffoldKey,
   });
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      title: Text(appName),
-      leading: IconButton(
-        icon: const Icon(Icons.menu),
-        onPressed: () {
-          scaffoldKey.currentState!.openDrawer();
-        },
+    final LayoutConstants layoutConstants = getIt<LayoutConstants>();
+    final AppColors appColors = getIt<AppColors>();
+
+    return Container(
+      padding: layoutConstants.paddingAppBar,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          IconButton(
+            icon: const Icon(Icons.menu),
+            color: appColors.onBackgroundColor,
+            onPressed: () {},
+          ),
+          const CustomCircleAvatar(),
+        ],
       ),
-      actions: const [CustomCircleAvatar()],
     );
   }
 

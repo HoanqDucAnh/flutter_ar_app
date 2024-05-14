@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_ar_app/core/router/router.dart';
 
 import 'rive_model.dart';
@@ -9,11 +8,7 @@ class Menu {
   final RiveModel rive;
   final PageRouteInfo tab;
 
-  Menu({
-    required this.title, 
-    required this.rive,
-    required this.tab
-  });
+  Menu({required this.title, required this.rive, required this.tab});
 }
 
 List<Menu> sidebarMenus = [
@@ -31,16 +26,15 @@ List<Menu> sidebarMenus = [
         src: "lib/core/resources/rive_assets/nav_icons.riv",
         artboard: "ONLINE",
         stateMachineName: "State Machine 1"),
-    tab: const MapRouteTab(),
+    tab: const MapRoute(),
   ),
   Menu(
-    title: "Favorites",
-    rive: RiveModel(
-        src: "assets/RiveAssets/icons.riv",
-        artboard: "LIKE/STAR",
-        stateMachineName: "STAR_Interactivity"),
-    tab: const ExploreRouteTab()
-  ),
+      title: "Favorites",
+      rive: RiveModel(
+          src: "assets/RiveAssets/icons.riv",
+          artboard: "LIKE/STAR",
+          stateMachineName: "STAR_Interactivity"),
+      tab: const ExploreRouteTab()),
 //   Menu(
 //     title: "Help",
 //     rive: RiveModel(

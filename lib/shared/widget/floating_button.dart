@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ar_app/core/initializer/app_initializer.dart';
-import 'package:flutter_ar_app/main.dart';
 import 'package:flutter_ar_app/shared/color/app_colors.dart';
-import 'package:camera/camera.dart';
 import 'package:flutter_ar_app/core/router/app_router.dart';
 
 class ScrollAwareFloatingButton extends StatefulWidget {
@@ -45,7 +43,10 @@ class _ScrollAwareFloatingButtonState extends State<ScrollAwareFloatingButton> {
         },
         heroTag: 'Camera',
         backgroundColor: appColors.secondaryColor.withOpacity(0.8),
-        child: const Icon(Icons.camera_alt),
+        child: Icon(
+          Icons.camera_alt,
+          color: appColors.iconColor,
+        ),
       ),
     );
   }
