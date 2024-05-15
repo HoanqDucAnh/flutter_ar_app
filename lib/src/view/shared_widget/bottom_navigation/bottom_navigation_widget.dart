@@ -3,10 +3,7 @@ import 'package:curved_labeled_navigation_bar/curved_navigation_bar.dart';
 import 'package:curved_labeled_navigation_bar/curved_navigation_bar_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ar_app/core/initializer/app_initializer.dart';
-import 'package:flutter_ar_app/shared/color/app_colors.dart';
 import 'package:flutter_ar_app/shared/shared.dart';
-import 'package:flutter_ar_app/src/model/model.dart';
-import 'package:flutter_ar_app/src/view/shared_widget/bottom_navigation/utils/constants.dart';
 
 class CustomNavigationBottomBar extends StatefulWidget {
   const CustomNavigationBottomBar(
