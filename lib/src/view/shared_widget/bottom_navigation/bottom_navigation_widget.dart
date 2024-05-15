@@ -42,7 +42,7 @@ class _CustomNavigationBottomBarState extends State<CustomNavigationBottomBar> {
             size: 20,
             color: appColors.primaryColor,
           ),
-          label: 'Home',
+          label: 'Nhà',
         ),
         CurvedNavigationBarItem(
           child: Icon(
@@ -50,7 +50,7 @@ class _CustomNavigationBottomBarState extends State<CustomNavigationBottomBar> {
             size: 20,
             color: appColors.primaryColor,
           ),
-          label: 'Explore',
+          label: 'Khám phá',
         ),
         CurvedNavigationBarItem(
           child: Icon(
@@ -58,7 +58,7 @@ class _CustomNavigationBottomBarState extends State<CustomNavigationBottomBar> {
             size: 20,
             color: appColors.primaryColor,
           ),
-          label: 'Lesson',
+          label: 'Bài học',
         ),
         CurvedNavigationBarItem(
           child: Icon(
@@ -66,7 +66,7 @@ class _CustomNavigationBottomBarState extends State<CustomNavigationBottomBar> {
             size: 20,
             color: appColors.primaryColor,
           ),
-          label: 'Favourite',
+          label: 'Yêu thích',
         ),
       ],
       onTap: widget.tabsRouter.setActiveIndex,

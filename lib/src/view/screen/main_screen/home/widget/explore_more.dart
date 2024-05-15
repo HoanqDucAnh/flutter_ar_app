@@ -44,18 +44,323 @@ class _ExploreMoreState extends State<ExploreMore> {
         title: 'Vé và lệ phí',
         bgrColor: appColors.linearColorOrange,
         iconColor: appColors.linearColorOrangeStronger,
+        description: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(
+              height: 16,
+            ),
+            RichText(
+              text: TextSpan(
+                style: appTextStyle.normalTextPrimary,
+                children: [
+                  TextSpan(
+                    text: 'Trẻ dưới 6 tuổi',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: appColors.linearColorOrangeStronger),
+                  ),
+                  const TextSpan(text: ': 2.000 VND/vé'),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            RichText(
+              text: TextSpan(
+                style: appTextStyle.normalTextPrimary,
+                children: <TextSpan>[
+                  TextSpan(
+                    text: 'Trẻ từ 6 tuổi trở lên',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: appColors.linearColorOrangeStronger),
+                  ),
+                  const TextSpan(text: ': 5.000 VND/vé'),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            RichText(
+              text: TextSpan(
+                style: appTextStyle.normalTextPrimary,
+                children: <TextSpan>[
+                  TextSpan(
+                    text: 'Người lớn',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: appColors.linearColorOrangeStronger),
+                  ),
+                  const TextSpan(text: ': 10.000 VND/vé'),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            RichText(
+              text: TextSpan(
+                style: appTextStyle.normalTextPrimary,
+                children: <TextSpan>[
+                  TextSpan(
+                    text: 'Du khách nước ngoài',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: appColors.linearColorOrangeStronger),
+                  ),
+                  const TextSpan(text: ': 30.000 VND/vé'),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            RichText(
+              text: TextSpan(
+                style: appTextStyle.normalTextPrimary,
+                children: <TextSpan>[
+                  TextSpan(
+                    text: 'Phí gửi xe',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: appColors.linearColorOrangeStronger),
+                  ),
+                  const TextSpan(text: ': 3.000 VND/xe máy, 20.000 VND/xe hơi'),
+                ],
+              ),
+            ),
+          ],
+        ),
         willNavigate: false,
       ),
       InfomationIcon(
         icon: Icons.abc,
-        title: 'Nội quy',
+        title: 'Lưu ý',
         bgrColor: appColors.linearColorPink,
         iconColor: appColors.linearColorPinkStronger,
+        description: Column(
+          children: [
+            const SizedBox(
+              height: 16,
+            ),
+            RichText(
+              text: TextSpan(
+                children: [
+                  const WidgetSpan(
+                    child: Icon(Icons.circle, size: 6, color: Colors.black),
+                    alignment: PlaceholderAlignment.middle,
+                  ),
+                  TextSpan(
+                    text: ' Trông chừng trẻ nhỏ tránh hỏng hiện vật',
+                    style: appTextStyle.normalTextPrimary,
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            RichText(
+              text: TextSpan(
+                children: [
+                  const WidgetSpan(
+                    child: Icon(Icons.circle, size: 6, color: Colors.black),
+                    alignment: PlaceholderAlignment.middle,
+                  ),
+                  TextSpan(
+                    text: ' Chọn trang phục thoải mái và đi giày thể thao',
+                    style: appTextStyle.normalTextPrimary,
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            RichText(
+              text: TextSpan(
+                children: [
+                  const WidgetSpan(
+                    child: Icon(Icons.circle, size: 6, color: Colors.black),
+                    alignment: PlaceholderAlignment.middle,
+                  ),
+                  TextSpan(
+                    text: ' Được mang quạt cầm tay, đồ ăn nhẹ và nước uống',
+                    style: appTextStyle.normalTextPrimary,
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            RichText(
+              text: TextSpan(
+                children: [
+                  const WidgetSpan(
+                    child: Icon(Icons.circle, size: 6, color: Colors.black),
+                    alignment: PlaceholderAlignment.middle,
+                  ),
+                  TextSpan(
+                    text:
+                        ' Hãy ưu tiên tham quan các cuộc triển lãm trong nhà trước. Các cuộc triển lãm ngoài trời vẫn mở cửa, kể cả sau giờ làm việc trong nhà',
+                    style: appTextStyle.normalTextPrimary,
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
         willNavigate: false,
       ),
       InfomationIcon(
         icon: Icons.access_time,
         title: 'Thời gian',
+        description: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(
+              height: 16,
+            ),
+            RichText(
+              text: TextSpan(
+                style: appTextStyle.normalTextPrimary,
+                children: [
+                  TextSpan(
+                    text: 'Thứ 2',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: appColors.linearColorPurpleStronger,
+                    ),
+                  ),
+                  const TextSpan(text: ': 8:00 - 11:00 | 13:00 - 16:00'),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            RichText(
+              text: TextSpan(
+                style: appTextStyle.normalTextPrimary,
+                children: [
+                  TextSpan(
+                    text: 'Thứ 3',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: appColors.linearColorPurpleStronger),
+                  ),
+                  const TextSpan(text: ': 8:00 - 11:00 | 13:00 - 16:00'),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            RichText(
+              text: TextSpan(
+                style: appTextStyle.normalTextPrimary,
+                children: [
+                  TextSpan(
+                    text: 'Thứ 4',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: appColors.linearColorPurpleStronger),
+                  ),
+                  const TextSpan(text: ': 8:00 - 11:00 | 13:00 - 16:00'),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            RichText(
+              text: TextSpan(
+                style: appTextStyle.normalTextPrimary,
+                children: [
+                  TextSpan(
+                    text: 'Thứ 5',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: appColors.linearColorPurpleStronger),
+                  ),
+                  const TextSpan(text: ': 8:00 - 11:00 | 13:00 - 16:00'),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            RichText(
+              text: TextSpan(
+                style: appTextStyle.normalTextPrimary,
+                children: [
+                  TextSpan(
+                    text: 'Thứ 6',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: appColors.linearColorPurpleStronger),
+                  ),
+                  const TextSpan(text: ': Chỉ phục vụ đoàn đăng ký trước'),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            RichText(
+              text: TextSpan(
+                style: appTextStyle.normalTextPrimary,
+                children: [
+                  TextSpan(
+                    text: 'Thứ 7',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: appColors.linearColorPurpleStronger),
+                  ),
+                  const TextSpan(text: ': 16:00 - 18:30'),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            RichText(
+              text: TextSpan(
+                style: appTextStyle.normalTextPrimary,
+                children: [
+                  TextSpan(
+                    text: 'Chủ nhật',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: appColors.linearColorPurpleStronger),
+                  ),
+                  const TextSpan(text: ': 16:00 - 18:30'),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            RichText(
+              text: TextSpan(
+                style: appTextStyle.normalTextPrimary,
+                children: [
+                  TextSpan(
+                    text: 'Ngày lễ',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: appColors.linearColorPurpleStronger),
+                  ),
+                  const TextSpan(text: ': 16:00 - 18:30'),
+                ],
+              ),
+            ),
+          ],
+        ),
         bgrColor: appColors.linearColorPurple,
         iconColor: appColors.linearColorPurpleStronger,
         willNavigate: false,
@@ -65,6 +370,14 @@ class _ExploreMoreState extends State<ExploreMore> {
         title: 'Liên hệ',
         bgrColor: appColors.linearColorRed,
         iconColor: appColors.linearColorRedStronger,
+        description: Expanded(
+          child: Center(
+            child: Text(
+              'Hotline: 069562323',
+              style: appTextStyle.normalTextPrimary,
+            ),
+          ),
+        ),
         willNavigate: false,
       ),
     ];
@@ -132,8 +445,9 @@ class _ExploreMoreState extends State<ExploreMore> {
                 overlayChildBuilder: (context) {
                   return InfoPopup(
                     title: infomationIcons[index].title,
-                    description: const Text('Description'),
                     overlayPortalController: overlayPortalController,
+                    bgrColor: infomationIcons[index].bgrColor,
+                    description: infomationIcons[index].description,
                   );
                 },
               ),
@@ -144,57 +458,6 @@ class _ExploreMoreState extends State<ExploreMore> {
         shrinkWrap: true,
       ),
     );
-
-    // return SizedBox(
-    //   height: AppDimen.of(context).screenHeight * 0.3,
-    //   width: double.infinity,
-    //   child: GridView.count(
-    //     padding: const EdgeInsets.all(0),
-    //     physics: const NeverScrollableScrollPhysics(),
-    //     crossAxisCount: 3,
-    //     childAspectRatio: 1.2,
-    //     children: List.generate(infomationIcons.length, (index) {
-    //       OverlayPortalController overlayPortalController =
-    //           OverlayPortalController();
-    //       return InkWell(
-    //         onTap: () {
-    //           if (infomationIcons[index].willNavigate) {
-    //             infomationIcons[index].onPressed!();
-    //           } else {
-    //             overlayPortalController.show();
-    //           }
-    //         },
-    //         child: Container(
-    //           margin: const EdgeInsets.all(8.0),
-    //           padding: const EdgeInsets.all(8.0),
-    //           decoration: BoxDecoration(
-    //             color: Colors.white,
-    //             borderRadius: BorderRadius.circular(8.0),
-    //           ),
-    //           child: Column(
-    //             mainAxisAlignment: MainAxisAlignment.start,
-    //             children: [
-    //               OverlayPortal(
-    //                 controller: overlayPortalController,
-    //                 overlayChildBuilder: (context) {
-    //                   return InfoPopup(
-    //                     title: infomationIcons[index].title,
-    //                     description: const Text('Description'),
-    //                     overlayPortalController: overlayPortalController,
-    //                   );
-    //                 },
-    //               ),
-    //               Text(
-    //                 infomationIcons[index].title,
-    //                 textAlign: TextAlign.center,
-    //               ),
-    //             ],
-    //           ),
-    //         ),
-    //       );
-    //     }).toList(),
-    //   ),
-    // );
   }
 }
 
@@ -205,6 +468,7 @@ class InfomationIcon {
   final bool willNavigate;
   final Color bgrColor;
   final Color iconColor;
+  final Widget? description;
 
   InfomationIcon(
       {required this.icon,
@@ -212,5 +476,6 @@ class InfomationIcon {
       this.onPressed,
       required this.willNavigate,
       required this.bgrColor,
-      required this.iconColor});
+      required this.iconColor,
+      this.description});
 }

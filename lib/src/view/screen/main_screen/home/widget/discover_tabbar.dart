@@ -59,7 +59,7 @@ class _DiscoverTabbarState extends State<DiscoverTabbar>
                 controller: tabController,
                 labelColor: appColors.textPrimaryColor,
                 unselectedLabelColor:
-                    appColors.textSecondaryColor.withOpacity(0.8),
+                    appColors.textPrimaryColor.withOpacity(0.2),
                 isScrollable: true,
                 indicatorSize: TabBarIndicatorSize.label,
                 indicator: CircularTabIndicator(
@@ -68,13 +68,13 @@ class _DiscoverTabbarState extends State<DiscoverTabbar>
                 ),
                 tabs: const [
                   Tab(
-                    text: 'Tất cả',
+                    text: 'Khu trưng bày',
                   ),
                   Tab(
-                    text: 'Mới nhất',
+                    text: 'Máy bay',
                   ),
                   Tab(
-                    text: 'Phổ biến',
+                    text: 'Khí tài khác',
                   ),
                 ],
               ),

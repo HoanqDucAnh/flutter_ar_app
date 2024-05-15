@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter_ar_app/core/initializer/app_initializer.dart';
-import 'package:flutter_ar_app/shared/shared.dart';
-import 'widget/widget.dart';
 
 @RoutePage()
 class HomePageTab extends StatefulWidget {
