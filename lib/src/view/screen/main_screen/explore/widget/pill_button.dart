@@ -21,19 +21,21 @@ class PillButton extends StatelessWidget {
 
     return GestureDetector(
       onTap: onPressed,
-      child: Container(
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 300),
         padding: layoutConstants.headerPadding,
         decoration: BoxDecoration(
-          color:
-              isSelected ? appColors.onSelectColor : appColors.secondaryColor,
+          color: isSelected
+              ? appColors.linearColorPurple
+              : appColors.secondaryColor,
           borderRadius: layoutConstants.mediumBorderRadius,
         ),
         child: Text(
           text,
           style: TextStyle(
             color: isSelected
-                ? appColors.textSecondaryColor
-                : appColors.textPrimaryColor,
+                ? appColors.textPrimaryColor
+                : appColors.textSecondaryColor,
             fontWeight: FontWeight.bold,
           ),
         ),
