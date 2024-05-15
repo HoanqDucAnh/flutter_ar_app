@@ -1,11 +1,15 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ar_app/core/initializer/app_initializer.dart';
+import 'package:flutter_ar_app/core/resources/content/plane/plane_list.dart';
 import 'package:flutter_ar_app/core/router/app_router.dart';
 import 'package:flutter_ar_app/shared/color/app_colors.dart';
 import 'package:flutter_ar_app/shared/constant/device_dimen.dart';
 import 'package:flutter_ar_app/shared/constant/layout_constant.dart';
+import 'package:flutter_ar_app/src/bloc/content_bloc/content_bloc.dart';
 import 'package:flutter_ar_app/src/model/model.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'widget.dart';
 
 class DiscoverTabbar extends StatefulWidget {
@@ -17,30 +21,39 @@ class DiscoverTabbar extends StatefulWidget {
 
 class _DiscoverTabbarState extends State<DiscoverTabbar>
     with TickerProviderStateMixin {
-  List<ExploreCard> exploreCards = [
-    ExploreCard(
-      title: 'Tất cả',
-      subtitle: 'Tất cả sản phẩm',
-      description: 'Tất cả sản phẩm',
-      image: 'lib/core/resources/images/home_images/introduction.jpg',
-    ),
-    ExploreCard(
-      title: 'Mới nhất',
-      subtitle: 'Mới nhất',
-      description: 'Mới nhất',
-      image: 'lib/core/resources/images/home_images/introduction.jpg',
-    ),
-    ExploreCard(
-      title: 'Phổ biến',
-      subtitle: 'Phổ biến',
-      description: 'Phổ biến',
-      image: 'lib/core/resources/images/home_images/introduction.jpg',
-    ),
-  ];
+  late TabController tabController;
+  late ContentBloc contentBloc;
+
+  @override
+  void initState() {
+    super.initState();
+    tabController = TabController(length: 3, vsync: this);
+    tabController.addListener(_handleTabChange);
+    contentBloc = BlocProvider.of<ContentBloc>(context);
+    contentBloc.add(const ContentFetched(category: ContentCategory.location));
+  }
+
+  void _handleTabChange() {
+    if (tabController.indexIsChanging) {
+      switch (tabController.index) {
+        case 0:
+          contentBloc
+              .add(const ContentFetched(category: ContentCategory.location));
+          break;
+        case 1:
+          contentBloc
+              .add(const ContentFetched(category: ContentCategory.plane));
+          break;
+        case 2:
+          contentBloc
+              .add(const ContentFetched(category: ContentCategory.weapon));
+          break;
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    TabController tabController = TabController(length: 3, vsync: this);
     AppColors appColors = getIt<AppColors>();
     LayoutConstants layoutConstants = getIt<LayoutConstants>();
 
@@ -86,28 +99,56 @@ class _DiscoverTabbarState extends State<DiscoverTabbar>
             child: TabBarView(
               controller: tabController,
               children: [
-                ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: exploreCards.length,
-                  itemBuilder: (context, index) {
-                    return InkWell(
-                      onTap: () {
-                        AutoRouter.of(context).push(const DetailRouteTab());
-                      },
-                      child: CustomCard(
-                        exploreCard: exploreCards[index],
-                      ),
-                    );
+                BlocBuilder<ContentBloc, ContentState>(
+                  builder: (context, state) {
+                    return _buildContent(state, context);
                   },
                 ),
-                const Text('Mới nhất'),
-                const Text('Phổ biến'),
+                BlocBuilder<ContentBloc, ContentState>(
+                  builder: (context, state) {
+                    return _buildContent(state, context);
+                  },
+                ),
+                BlocBuilder<ContentBloc, ContentState>(
+                  builder: (context, state) {
+                    return _buildContent(state, context);
+                  },
+                ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );
+  }
+
+  Widget _buildContent(ContentState state, BuildContext context) {
+    if (state.status == ContentStatus.loading ||
+        state.status == ContentStatus.initial) {
+      return const CircularProgressIndicator();
+    } else if (state.status == ContentStatus.success) {
+      // ignore: prefer_is_empty
+      if (state.artifacts!.length == 0) {
+        return const Text('No data', style: TextStyle(color: Colors.black));
+      }
+      return ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: state.artifacts!.length > 5 ? 5 : state.artifacts!.length,
+        itemBuilder: (context, index) {
+          return InkWell(
+            onTap: () {
+              AutoRouter.of(context).push(const DetailRouteTab());
+            },
+            child: CustomCard(
+              exploreCard: state.artifacts![index],
+            ),
+          );
+        },
+      );
+    } else {
+      return Text('Error: ${state.error}',
+          style: const TextStyle(color: Colors.red));
+    }
   }
 }
 

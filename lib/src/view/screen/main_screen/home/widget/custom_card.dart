@@ -7,7 +7,7 @@ import 'package:flutter_ar_app/shared/font/app_text_style.dart';
 import 'package:flutter_ar_app/src/model/model.dart';
 
 class CustomCard extends StatelessWidget {
-  final ExploreCard exploreCard;
+  final MuseumArtifactModel exploreCard;
 
   const CustomCard({super.key, required this.exploreCard});
 

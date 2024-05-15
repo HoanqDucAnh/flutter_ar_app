@@ -1,0 +1,86 @@
+import 'package:flutter_ar_app/core/resources/content/plane/plane.dart';
+import 'package:flutter_ar_app/src/bloc/content_bloc/content_bloc.dart';
+import 'package:flutter_ar_app/src/model/explore_card/explore_card.dart';
+
+List<MuseumArtifactModel> planeList = [
+  MuseumArtifactModel(
+    title: 'Trực thăng MI4',
+    subtitle: 'Trực thăng vận tải',
+    type: ContentCategory.plane,
+    description: PlaneContent().MI4Hellicopter,
+    manufacturer: 'Liên Xô',
+    image: 'lib/core/resources/images/home_images/introduction.jpg',
+  ),
+  MuseumArtifactModel(
+    title: 'Máy bay HL-2',
+    subtitle: 'Máy bay huấn luyện',
+    type: ContentCategory.plane,
+    description: PlaneContent().HL2Plane,
+    manufacturer: 'Việt Nam',
+    image: 'lib/core/resources/images/home_images/introduction.jpg',
+  ),
+  MuseumArtifactModel(
+    title: 'Máy bay SU-22M',
+    subtitle: 'SuKhoi SU-22M',
+    type: ContentCategory.plane,
+    description: ['Phổ biến'],
+    manufacturer: 'Liên Xô',
+    image: 'lib/core/resources/images/home_images/introduction.jpg',
+  ),
+  MuseumArtifactModel(
+    title: 'Máy bay HL-1',
+    subtitle: 'Máy bay huấn luyện',
+    type: ContentCategory.plane,
+    description: PlaneContent().HL1Plane,
+    manufacturer: 'Việt Nam',
+    image: 'lib/core/resources/images/home_images/introduction.jpg',
+  ),
+  MuseumArtifactModel(
+    title: 'Máy bay MiG-19',
+    subtitle: 'Máy bay tiêm kích',
+    type: ContentCategory.plane,
+    description: PlaneContent().Mig19Plane,
+    manufacturer: 'Liên Xô',
+    image: 'lib/core/resources/images/home_images/introduction.jpg',
+  ),
+  MuseumArtifactModel(
+    title: 'Máy bay AN-2',
+    subtitle: 'Máy bay vận tải',
+    type: ContentCategory.plane,
+    description: PlaneContent().AN2Plane,
+    manufacturer: 'Liên Xô',
+    image: 'lib/core/resources/images/home_images/introduction.jpg',
+  ),
+  MuseumArtifactModel(
+    title: 'Máy bay VNS-41',
+    subtitle: 'Máy bay lưỡng dụng siêu nhẹ',
+    type: ContentCategory.plane,
+    description: PlaneContent().VNS41Plane,
+    manufacturer: 'Việt Nam',
+    image: 'lib/core/resources/images/home_images/introduction.jpg',
+  ),
+  MuseumArtifactModel(
+    title: 'Máy bay MiG-21F-96',
+    subtitle: 'Máy bay tiêm kích',
+    type: ContentCategory.plane,
+    description: PlaneContent().Mig21F96Plane,
+    manufacturer: 'Liên Xô',
+    image: 'lib/core/resources/images/home_images/introduction.jpg',
+  ),
+  MuseumArtifactModel(
+    title: 'Máy bay MiG-17',
+    subtitle: 'Máy bay tiêm kích',
+    type: ContentCategory.plane,
+    description: PlaneContent().Mig17Plane,
+    manufacturer: 'Liên Xô',
+    image: 'lib/core/resources/images/home_images/introduction.jpg',
+  ),
+  MuseumArtifactModel(
+    title: 'Máy bay ném bom MiG-17',
+    subtitle: 'Máy bay ném bom chiến lược',
+    type: ContentCategory.plane,
+    description: PlaneContent().Mig17BomberPlane,
+    manufacturer: 'Liên Xô',
+    image: 'lib/core/resources/images/home_images/introduction.jpg',
+  ),
+];
