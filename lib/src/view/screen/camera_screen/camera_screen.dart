@@ -19,7 +19,12 @@ class CameraPageTab extends StatefulWidget {
 class _CameraPageTabState extends State<CameraPageTab> {
   @override
   Widget build(BuildContext context) {
-    return MyARScreen();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('AR Experience'),
+      ),
+      body: MyARScreen(),
+    );
   }
 }
 
