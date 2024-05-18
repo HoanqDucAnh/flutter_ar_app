@@ -50,46 +50,48 @@ class _ExplorePageTabState extends State<ExplorePageTab> {
           ),
           Padding(
             padding: layoutConstants.headerPadding,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                PillButton(
-                  text: 'Tất cả',
-                  isSelected: selectedPill == 'Tất cả',
-                  onPressed: () {
-                    _handlePillChange('Tất cả');
-                    contentBloc.add(
-                        const ContentFetched(category: ContentCategory.all));
-                  },
-                ),
-                PillButton(
-                  text: 'Địa điểm',
-                  isSelected: selectedPill == 'Địa điểm',
-                  onPressed: () {
-                    _handlePillChange('Địa điểm');
-                    contentBloc.add(const ContentFetched(
-                        category: ContentCategory.location));
-                  },
-                ),
-                PillButton(
-                  text: 'Máy bay',
-                  isSelected: selectedPill == 'Máy bay',
-                  onPressed: () {
-                    _handlePillChange('Máy bay');
-                    contentBloc.add(
-                        const ContentFetched(category: ContentCategory.plane));
-                  },
-                ),
-                PillButton(
-                  text: 'Vũ khí',
-                  isSelected: selectedPill == 'Vũ khí',
-                  onPressed: () {
-                    _handlePillChange('Vũ khí');
-                    contentBloc.add(
-                        const ContentFetched(category: ContentCategory.weapon));
-                  },
-                ),
-              ],
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  PillButton(
+                    text: 'Tất cả',
+                    isSelected: selectedPill == 'Tất cả',
+                    onPressed: () {
+                      _handlePillChange('Tất cả');
+                      contentBloc.add(
+                          const ContentFetched(category: ContentCategory.all));
+                    },
+                  ),
+                  PillButton(
+                    text: 'Địa điểm',
+                    isSelected: selectedPill == 'Địa điểm',
+                    onPressed: () {
+                      _handlePillChange('Địa điểm');
+                      contentBloc.add(const ContentFetched(
+                          category: ContentCategory.location));
+                    },
+                  ),
+                  PillButton(
+                    text: 'Máy bay',
+                    isSelected: selectedPill == 'Máy bay',
+                    onPressed: () {
+                      _handlePillChange('Máy bay');
+                      contentBloc.add(const ContentFetched(
+                          category: ContentCategory.plane));
+                    },
+                  ),
+                  PillButton(
+                    text: 'Vũ khí',
+                    isSelected: selectedPill == 'Vũ khí',
+                    onPressed: () {
+                      _handlePillChange('Vũ khí');
+                      contentBloc.add(const ContentFetched(
+                          category: ContentCategory.weapon));
+                    },
+                  ),
+                ],
+              ),
             ),
           ),
           Padding(

@@ -3,12 +3,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_ar_app/core/initializer/app_initializer.dart';
-import 'package:flutter_ar_app/shared/color/app_colors.dart';
-import 'package:flutter_ar_app/shared/font/app_text_style.dart';
+import 'package:flutter_ar_app/core/router/app_router.dart';
 import 'package:flutter_ar_app/shared/shared.dart';
 import 'package:flutter_ar_app/src/bloc/content_bloc/content_bloc.dart';
+import 'package:flutter_ar_app/src/controller/controller.dart';
 import 'package:flutter_ar_app/src/model/explore_card/explore_card.dart';
 import 'package:flutter_masonry_view/flutter_masonry_view.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 @RoutePage()
 class DetailPageTab extends StatefulWidget {
@@ -23,6 +24,98 @@ class _DetailPageTabState extends State<DetailPageTab> {
   LayoutConstants layoutConstants = getIt<LayoutConstants>();
   AppColors appColors = getIt<AppColors>();
   AppTextStyle appTextStyle = getIt<AppTextStyle>();
+  bool isFavorite = false;
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  Future<void> addToFavorite(SharedPreferences prefs) async {
+    try {
+      List<String> favoriteList = prefs.getStringList('myFavourite') ?? [];
+      //check if the item is already in the favorite list
+      if (favoriteList.contains(widget.exploreCard.title)) {
+        //throw an error if the item is already in the favorite list
+        throw Exception('Đã có trong danh sách yêu thích');
+      }
+      favoriteList.add(widget.exploreCard.title);
+      await prefs.setStringList('myFavourite', favoriteList);
+      setState(() {
+        isFavorite = true;
+      });
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            duration: const Duration(seconds: 1),
+            content: Text(
+              'Đã thêm ${widget.exploreCard.title} vào yêu thích',
+              style: appTextStyle.normalTextPrimary,
+            ),
+          ),
+        );
+      }
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            duration: const Duration(seconds: 1),
+            content: Text(
+              'Đã có lỗi xảy ra ${e.toString()}',
+              style: appTextStyle.normalTextPrimary,
+            ),
+          ),
+        );
+      }
+    }
+  }
+
+  Future<void> removeFromFavorite(SharedPreferences prefs) async {
+    try {
+      List<String> favoriteList = prefs.getStringList('myFavourite') ?? [];
+      //check if the item is already in the favorite list
+      if (!favoriteList.contains(widget.exploreCard.title)) {
+        //throw an error if the item is not in the favorite list
+        throw Exception('Không có trong danh sách yêu thích');
+      }
+      favoriteList.remove(widget.exploreCard.title);
+      await prefs.setStringList('myFavourite', favoriteList);
+      setState(() {
+        isFavorite = false;
+      });
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            duration: const Duration(seconds: 1),
+            content: Text(
+              'Đã xóa ${widget.exploreCard.title} khỏi yêu thích',
+              style: appTextStyle.normalTextPrimary,
+            ),
+          ),
+        );
+      }
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            duration: const Duration(seconds: 1),
+            content: Text(
+              'Đã có lỗi xảy ra ${e.toString()}',
+              style: appTextStyle.normalTextPrimary,
+            ),
+          ),
+        );
+      }
+    }
+  }
+
+  bool checkIfFavorite(SharedPreferences prefs) {
+    List<String> favoriteList = prefs.getStringList('myFavourite') ?? [];
+    if (favoriteList.contains(widget.exploreCard.title)) {
+      isFavorite = true;
+    }
+    return isFavorite;
+  }
 
   Stream<DateTime> timeStream() async* {
     yield DateTime.now();
@@ -38,7 +131,8 @@ class _DetailPageTabState extends State<DetailPageTab> {
     // The museum is open from 8 AM to 5 PM.
     return hour >= 8 && hour <= 11 ||
         hour >= 13 && hour <= 16 ||
-        currentWeekday != 6;
+        currentWeekday != 6 && hour >= 8 && hour <= 11 ||
+        hour >= 13 && hour <= 16;
   }
 
   @override
@@ -70,7 +164,7 @@ class _DetailPageTabState extends State<DetailPageTab> {
                 children: [
                   IconButton(
                     onPressed: () {
-                      AutoRouter.of(context).back();
+                      AutoRouter.of(context).maybePop();
                     },
                     icon: Icon(
                       Icons.arrow_back,
@@ -152,7 +246,7 @@ class _DetailPageTabState extends State<DetailPageTab> {
                                 ],
                               ),
                         SizedBox(
-                            height: AppDimen.of(context).screenHeight * 0.003),
+                            height: AppDimen.of(context).screenHeight * 0.005),
                         Row(
                           children: [
                             Wrap(
@@ -171,6 +265,40 @@ class _DetailPageTabState extends State<DetailPageTab> {
                               '(4.0)',
                               style: appTextStyle.normalTextPrimary,
                             ),
+                            Expanded(
+                              child: Container(),
+                            ),
+                            FutureBuilder(
+                              future: SharedPreferences.getInstance(),
+                              builder: (context, snapshot) {
+                                if (snapshot.hasData &&
+                                    snapshot.connectionState ==
+                                        ConnectionState.done) {
+                                  SharedPreferences prefs = snapshot.data!;
+                                  isFavorite = checkIfFavorite(prefs);
+                                  return Padding(
+                                    padding: const EdgeInsets.only(right: 16.0),
+                                    child: InkWell(
+                                      onTap: () async {
+                                        if (isFavorite) {
+                                          await removeFromFavorite(prefs);
+                                        } else {
+                                          await addToFavorite(prefs);
+                                        }
+                                      },
+                                      child: Icon(
+                                        isFavorite
+                                            ? Icons.favorite
+                                            : Icons.favorite_border,
+                                        color: appColors.linearColorRed,
+                                      ),
+                                    ),
+                                  );
+                                } else {
+                                  return Container();
+                                }
+                              },
+                            ),
                           ],
                         ),
                         SizedBox(
@@ -188,6 +316,7 @@ class _DetailPageTabState extends State<DetailPageTab> {
                               Text(
                                 widget.exploreCard.description[index],
                                 style: appTextStyle.normalTextPrimary,
+                                textAlign: TextAlign.justify,
                               ),
                               const SizedBox(height: 5),
                             ],
@@ -205,36 +334,14 @@ class _DetailPageTabState extends State<DetailPageTab> {
                                 itemPadding: 8.0,
                                 itemRadius: 10,
                                 itemBuilder: (dynamic item) {
-                                  return FutureBuilder(
-                                      future: precacheImage(
-                                          AssetImage(item), context),
-                                      builder: (context, snapshot) {
-                                        if (snapshot.connectionState !=
-                                            ConnectionState.done) {
-                                          return Container(
-                                            width: AppDimen.of(context)
-                                                    .screenWidth *
-                                                0.8,
-                                            height: AppDimen.of(context)
-                                                    .screenWidth *
-                                                0.8,
-                                            color: appColors.secondaryColor,
-                                            child: const Center(
-                                              child: CircularProgressIndicator(
-                                                color: Colors.white,
-                                              ),
-                                            ),
-                                          );
-                                        }
-                                        return ClipRRect(
-                                          borderRadius: layoutConstants
-                                              .mediumBorderRadius,
-                                          child: Image.asset(
-                                            item,
-                                            fit: BoxFit.cover,
-                                          ),
-                                        );
-                                      });
+                                  return ClipRRect(
+                                    borderRadius:
+                                        layoutConstants.mediumBorderRadius,
+                                    child: Image.asset(
+                                      item,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  );
                                 },
                               )
                             : Container(),
@@ -276,7 +383,11 @@ class _DetailPageTabState extends State<DetailPageTab> {
                             ),
                           ),
                         ),
-                        onTap: () {},
+                        onTap: () {
+                          AutoRouter.of(context).push(
+                            const CameraRouteTab(),
+                          );
+                        },
                       )
                     : Container(),
               ),

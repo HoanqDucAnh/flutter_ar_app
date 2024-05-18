@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ar_app/core/initializer/app_initializer.dart';
 import 'package:flutter_ar_app/core/router/app_router.dart';
+import 'package:flutter_ar_app/core/router/router.dart';
 import 'package:flutter_ar_app/shared/font/app_text_style.dart';
 import 'package:flutter_ar_app/src/bloc/content_bloc/content_bloc.dart';
 import 'package:flutter_masonry_view/flutter_masonry_view.dart';
@@ -38,15 +39,9 @@ class ExploreList extends StatelessWidget {
               ),
               child: InkWell(
                 onTap: () {
-                  if (artifactsList
-                          .elementAt(artifactsList
-                              .indexWhere((element) => element.title == item))
-                          .type ==
-                      ContentCategory.plane) {
-                    AutoRouter.of(context).push(
-                      const CameraRouteTab(),
-                    );
-                  }
+                  AutoRouter.of(context).push(DetailRouteTab(
+                      exploreCard: artifactsList[artifactsList
+                          .indexWhere((element) => element.title == item)]));
                 },
                 child: Stack(
                   children: [
@@ -64,16 +59,19 @@ class ExploreList extends StatelessWidget {
                       bottom: 8.0,
                       left: 10.0,
                       right: 10,
-                      child: Container(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              item,
-                              style: appTextStyle.s14w400TextPrimary,
-                            ),
-                          ],
+                      child: Center(
+                        child: Container(
+                          padding: const EdgeInsets.all(4.0),
+                          decoration: BoxDecoration(
+                            color: Colors.black.withOpacity(0.5),
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                          child: Text(
+                            item,
+                            style: appTextStyle.normalTextSecondary,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ),
                         ),
                       ),
                     ),
