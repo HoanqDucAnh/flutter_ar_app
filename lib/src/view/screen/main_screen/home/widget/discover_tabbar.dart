@@ -1,14 +1,11 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ar_app/core/initializer/app_initializer.dart';
-import 'package:flutter_ar_app/core/resources/content/plane/plane_list.dart';
 import 'package:flutter_ar_app/core/router/app_router.dart';
 import 'package:flutter_ar_app/shared/color/app_colors.dart';
 import 'package:flutter_ar_app/shared/constant/device_dimen.dart';
 import 'package:flutter_ar_app/shared/constant/layout_constant.dart';
 import 'package:flutter_ar_app/src/bloc/content_bloc/content_bloc.dart';
-import 'package:flutter_ar_app/src/model/model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'widget.dart';
 
@@ -137,7 +134,8 @@ class _DiscoverTabbarState extends State<DiscoverTabbar>
         itemBuilder: (context, index) {
           return InkWell(
             onTap: () {
-              AutoRouter.of(context).push(const DetailRouteTab());
+              AutoRouter.of(context)
+                  .push(DetailRouteTab(exploreCard: state.artifacts![index]));
             },
             child: CustomCard(
               exploreCard: state.artifacts![index],

@@ -47,6 +47,7 @@ dependencies:
   rive: ^0.9.1
   curved_labeled_navigation_bar: ^2.0.2
   animated_text_kit: ^4.2.2
+  shared_preferences: ^2.2.3
 
 dev_dependencies:
   flutter_test:
@@ -78,6 +79,10 @@ flutter:
     - lib/core/resources/images/home_images/
     - lib/core/resources/images/museum_welcome_images/
     - lib/core/resources/images/map_images/
+    - lib/core/resources/images/content_images/location_images/
+    - lib/core/resources/images/content_images/plane_images/
+    - lib/core/resources/images/content_images/plane_images/inner_images/
+    - lib/core/resources/images/content_images/weapon_images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

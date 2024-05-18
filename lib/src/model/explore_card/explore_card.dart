@@ -7,6 +7,8 @@ class MuseumArtifactModel {
   final String image;
   final List<String> description;
   final String? manufacturer;
+  final WeaponType? weaponType;
+  final List<String>? contentImg;
 
   MuseumArtifactModel({
     required this.title,
@@ -14,6 +16,10 @@ class MuseumArtifactModel {
     required this.type,
     required this.image,
     required this.description,
+    this.contentImg,
+    this.weaponType,
     this.manufacturer,
   });
 }
+
+enum WeaponType { artillery, radar, missile, tank, aircraft }

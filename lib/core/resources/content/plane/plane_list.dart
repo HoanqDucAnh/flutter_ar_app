@@ -9,7 +9,10 @@ List<MuseumArtifactModel> planeList = [
     type: ContentCategory.plane,
     description: PlaneContent().MI4Hellicopter,
     manufacturer: 'Liên Xô',
-    image: 'lib/core/resources/images/home_images/introduction.jpg',
+    image: 'lib/core/resources/images/content_images/plane_images/mi4Heli.jpg',
+    contentImg: [
+      'lib/core/resources/images/content_images/plane_images/inner_images/mi4.jpg'
+    ],
   ),
   MuseumArtifactModel(
     title: 'Máy bay HL-2',
@@ -17,7 +20,10 @@ List<MuseumArtifactModel> planeList = [
     type: ContentCategory.plane,
     description: PlaneContent().HL2Plane,
     manufacturer: 'Việt Nam',
-    image: 'lib/core/resources/images/home_images/introduction.jpg',
+    image: 'lib/core/resources/images/content_images/plane_images/hl2Plane.jpg',
+    contentImg: [
+      'lib/core/resources/images/content_images/plane_images/inner_images/hl2.jpg'
+    ],
   ),
   MuseumArtifactModel(
     title: 'Máy bay SU-22M',
@@ -25,7 +31,11 @@ List<MuseumArtifactModel> planeList = [
     type: ContentCategory.plane,
     description: ['Phổ biến'],
     manufacturer: 'Liên Xô',
-    image: 'lib/core/resources/images/home_images/introduction.jpg',
+    image:
+        'lib/core/resources/images/content_images/plane_images/su22mPlane.jpg',
+    contentImg: [
+      'lib/core/resources/images/content_images/plane_images/inner_images/su22m.jpg'
+    ],
   ),
   MuseumArtifactModel(
     title: 'Máy bay HL-1',
@@ -33,7 +43,10 @@ List<MuseumArtifactModel> planeList = [
     type: ContentCategory.plane,
     description: PlaneContent().HL1Plane,
     manufacturer: 'Việt Nam',
-    image: 'lib/core/resources/images/home_images/introduction.jpg',
+    image: 'lib/core/resources/images/content_images/plane_images/hl1Plane.jpg',
+    contentImg: [
+      'lib/core/resources/images/content_images/plane_images/inner_images/hl1.jpg'
+    ],
   ),
   MuseumArtifactModel(
     title: 'Máy bay MiG-19',
@@ -41,7 +54,11 @@ List<MuseumArtifactModel> planeList = [
     type: ContentCategory.plane,
     description: PlaneContent().Mig19Plane,
     manufacturer: 'Liên Xô',
-    image: 'lib/core/resources/images/home_images/introduction.jpg',
+    image:
+        'lib/core/resources/images/content_images/plane_images/mig19Plane.jpg',
+    contentImg: [
+      'lib/core/resources/images/content_images/plane_images/inner_images/mig19.jpg'
+    ],
   ),
   MuseumArtifactModel(
     title: 'Máy bay AN-2',
@@ -49,7 +66,10 @@ List<MuseumArtifactModel> planeList = [
     type: ContentCategory.plane,
     description: PlaneContent().AN2Plane,
     manufacturer: 'Liên Xô',
-    image: 'lib/core/resources/images/home_images/introduction.jpg',
+    image: 'lib/core/resources/images/content_images/plane_images/an2Plane.jpg',
+    contentImg: [
+      'lib/core/resources/images/content_images/plane_images/inner_images/an2.jpg'
+    ],
   ),
   MuseumArtifactModel(
     title: 'Máy bay VNS-41',
@@ -57,7 +77,11 @@ List<MuseumArtifactModel> planeList = [
     type: ContentCategory.plane,
     description: PlaneContent().VNS41Plane,
     manufacturer: 'Việt Nam',
-    image: 'lib/core/resources/images/home_images/introduction.jpg',
+    image:
+        'lib/core/resources/images/content_images/plane_images/vns41Plane.jpg',
+    contentImg: [
+      'lib/core/resources/images/content_images/plane_images/inner_images/vns41.jpg'
+    ],
   ),
   MuseumArtifactModel(
     title: 'Máy bay MiG-21F-96',
@@ -65,7 +89,12 @@ List<MuseumArtifactModel> planeList = [
     type: ContentCategory.plane,
     description: PlaneContent().Mig21F96Plane,
     manufacturer: 'Liên Xô',
-    image: 'lib/core/resources/images/home_images/introduction.jpg',
+    image:
+        'lib/core/resources/images/content_images/plane_images/mig21Plane.jpg',
+    contentImg: [
+      'lib/core/resources/images/content_images/plane_images/inner_images/mig21.jpg',
+      'lib/core/resources/images/content_images/plane_images/inner_images/mig21_2.jpg'
+    ],
   ),
   MuseumArtifactModel(
     title: 'Máy bay MiG-17',
@@ -73,7 +102,11 @@ List<MuseumArtifactModel> planeList = [
     type: ContentCategory.plane,
     description: PlaneContent().Mig17Plane,
     manufacturer: 'Liên Xô',
-    image: 'lib/core/resources/images/home_images/introduction.jpg',
+    image:
+        'lib/core/resources/images/content_images/plane_images/mig17Plane.jpg',
+    contentImg: [
+      'lib/core/resources/images/content_images/plane_images/inner_images/mig17.jpg'
+    ],
   ),
   MuseumArtifactModel(
     title: 'Máy bay ném bom MiG-17',
@@ -81,6 +114,10 @@ List<MuseumArtifactModel> planeList = [
     type: ContentCategory.plane,
     description: PlaneContent().Mig17BomberPlane,
     manufacturer: 'Liên Xô',
-    image: 'lib/core/resources/images/home_images/introduction.jpg',
+    image:
+        'lib/core/resources/images/content_images/plane_images/mig17bomPlane.jpg',
+    contentImg: [
+      'lib/core/resources/images/content_images/plane_images/inner_images/mig17bom.jpg'
+    ],
   ),
 ];
