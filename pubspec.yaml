@@ -83,7 +83,7 @@ flutter:
     - lib/core/resources/images/content_images/plane_images/
     - lib/core/resources/images/content_images/plane_images/inner_images/
     - lib/core/resources/images/content_images/weapon_images/
-
+    - lib/core/resources/images/onboarding_images/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

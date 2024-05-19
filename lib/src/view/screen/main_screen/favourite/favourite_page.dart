@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ar_app/core/initializer/app_initializer.dart';
 import 'package:flutter_ar_app/shared/constant/layout_constant.dart';
 import 'package:flutter_ar_app/shared/font/app_text_style.dart';
+import 'package:flutter_ar_app/src/bloc/bloc.dart';
 import 'package:flutter_ar_app/src/bloc/content_bloc/content_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -18,7 +19,12 @@ class FavouritePageTab extends StatefulWidget {
 
 class _FavouritePageTabState extends State<FavouritePageTab> {
   String selectedPill = 'Tất cả';
-  late ContentBloc contentBloc;
+  late FavouriteBloc favouriteBloc;
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   void _handlePillChange(String pill) {
     setState(() {
@@ -33,9 +39,10 @@ class _FavouritePageTabState extends State<FavouritePageTab> {
 
     return BlocProvider(
       create: (context) {
-        contentBloc = ContentBloc();
-        contentBloc.add(const ContentFetched(category: ContentCategory.all));
-        return contentBloc;
+        favouriteBloc = FavouriteBloc();
+        favouriteBloc.add(const FavouriteInit());
+
+        return favouriteBloc;
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -59,8 +66,8 @@ class _FavouritePageTabState extends State<FavouritePageTab> {
                     isSelected: selectedPill == 'Tất cả',
                     onPressed: () {
                       _handlePillChange('Tất cả');
-                      contentBloc.add(
-                          const ContentFetched(category: ContentCategory.all));
+                      favouriteBloc.add(
+                          const FavouriteLoad(category: ContentCategory.all));
                     },
                   ),
                   PillButton(
@@ -68,7 +75,7 @@ class _FavouritePageTabState extends State<FavouritePageTab> {
                     isSelected: selectedPill == 'Địa điểm',
                     onPressed: () {
                       _handlePillChange('Địa điểm');
-                      contentBloc.add(const ContentFetched(
+                      favouriteBloc.add(const FavouriteLoad(
                           category: ContentCategory.location));
                     },
                   ),
@@ -77,8 +84,8 @@ class _FavouritePageTabState extends State<FavouritePageTab> {
                     isSelected: selectedPill == 'Máy bay',
                     onPressed: () {
                       _handlePillChange('Máy bay');
-                      contentBloc.add(const ContentFetched(
-                          category: ContentCategory.plane));
+                      favouriteBloc.add(
+                          const FavouriteLoad(category: ContentCategory.plane));
                     },
                   ),
                   PillButton(
@@ -86,7 +93,7 @@ class _FavouritePageTabState extends State<FavouritePageTab> {
                     isSelected: selectedPill == 'Vũ khí',
                     onPressed: () {
                       _handlePillChange('Vũ khí');
-                      contentBloc.add(const ContentFetched(
+                      favouriteBloc.add(const FavouriteLoad(
                           category: ContentCategory.weapon));
                     },
                   ),
@@ -101,22 +108,22 @@ class _FavouritePageTabState extends State<FavouritePageTab> {
           Expanded(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: BlocBuilder<ContentBloc, ContentState>(
+              child: BlocBuilder<FavouriteBloc, FavouriteState>(
                 builder: (context, state) {
-                  if (state.status == ContentStatus.loading ||
-                      state.status == ContentStatus.initial) {
-                    return const Center(
-                      child: CircularProgressIndicator(),
+                  if (state.status == FavouriteStatus.loading ||
+                      state.status == FavouriteStatus.initial) {
+                    return Center(
+                      child: Container(),
                     );
-                  } else if (state.status == ContentStatus.failure) {
+                  } else if (state.status == FavouriteStatus.failure) {
                     return const Center(
                       child: Text('Failed to fetch content'),
                     );
-                  } else if (state.status == ContentStatus.success) {
+                  } else if (state.status == FavouriteStatus.success) {
                     return ExploreList(artifactsList: state.artifacts!);
                   }
-                  return const Center(
-                    child: CircularProgressIndicator(),
+                  return Center(
+                    child: Container(),
                   );
                 },
               ),
