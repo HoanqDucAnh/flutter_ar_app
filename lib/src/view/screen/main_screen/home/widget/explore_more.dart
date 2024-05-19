@@ -30,16 +30,6 @@ class _ExploreMoreState extends State<ExploreMore> {
           },
           willNavigate: true),
       InfomationIcon(
-        icon: Icons.location_on,
-        title: 'Vị trí',
-        bgrColor: appColors.linearColorGreen,
-        iconColor: appColors.linearColorGreenStronger,
-        onPressed: () {
-          print('cliked');
-        },
-        willNavigate: true,
-      ),
-      InfomationIcon(
         icon: Icons.money,
         title: 'Vé và lệ phí',
         bgrColor: appColors.linearColorOrange,

@@ -4,7 +4,6 @@ import 'package:flutter_ar_app/core/initializer/app_initializer.dart';
 import 'package:flutter_ar_app/shared/constant/layout_constant.dart';
 import 'package:flutter_ar_app/shared/font/app_text_style.dart';
 import 'package:flutter_ar_app/src/bloc/bloc.dart';
-import 'package:flutter_ar_app/src/bloc/content_bloc/content_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../explore/widget/widget.dart';

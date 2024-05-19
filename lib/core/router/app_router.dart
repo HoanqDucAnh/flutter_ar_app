@@ -25,9 +25,6 @@ class AppRouter extends _$AppRouter {
               page: ExploreRouteTab.page,
             ),
             AutoRoute(
-              page: LessonRouteTab.page,
-            ),
-            AutoRoute(
               page: FavouriteRouteTab.page,
             ),
           ],

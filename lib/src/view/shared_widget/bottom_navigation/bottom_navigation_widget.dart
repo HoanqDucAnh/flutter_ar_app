@@ -25,7 +25,6 @@ class _CustomNavigationBottomBarState extends State<CustomNavigationBottomBar> {
   @override
   Widget build(BuildContext context) {
     final AppColors appColors = getIt<AppColors>();
-    final LayoutConstants layoutConstants = getIt<LayoutConstants>();
 
     return CurvedNavigationBar(
       buttonBackgroundColor: appColors.linearColorPurple,
@@ -48,14 +47,6 @@ class _CustomNavigationBottomBarState extends State<CustomNavigationBottomBar> {
             color: appColors.primaryColor,
           ),
           label: 'Khám phá',
-        ),
-        CurvedNavigationBarItem(
-          child: Icon(
-            Icons.book,
-            size: 20,
-            color: appColors.primaryColor,
-          ),
-          label: 'Bài học',
         ),
         CurvedNavigationBarItem(
           child: Icon(

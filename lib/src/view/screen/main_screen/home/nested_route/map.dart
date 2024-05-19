@@ -1,12 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/widgets.dart';
+
 import 'package:flutter_ar_app/core/initializer/app_initializer.dart';
 import 'package:flutter_ar_app/src/model/artifact.dart';
 import 'package:flutter_ar_app/shared/shared.dart';
-
-import 'package:flutter_ar_app/src/view/screen/main_screen/home/nested_route/map/point.dart';
 
 @RoutePage()
 class MapPage extends StatefulWidget {

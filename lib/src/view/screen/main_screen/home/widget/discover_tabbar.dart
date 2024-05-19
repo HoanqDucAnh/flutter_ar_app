@@ -4,7 +4,6 @@ import 'package:flutter_ar_app/core/initializer/app_initializer.dart';
 import 'package:flutter_ar_app/core/router/app_router.dart';
 import 'package:flutter_ar_app/shared/color/app_colors.dart';
 import 'package:flutter_ar_app/shared/constant/device_dimen.dart';
-import 'package:flutter_ar_app/shared/constant/layout_constant.dart';
 import 'package:flutter_ar_app/src/bloc/content_bloc/content_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'widget.dart';
@@ -52,7 +51,6 @@ class _DiscoverTabbarState extends State<DiscoverTabbar>
   @override
   Widget build(BuildContext context) {
     AppColors appColors = getIt<AppColors>();
-    LayoutConstants layoutConstants = getIt<LayoutConstants>();
 
     return Padding(
       padding: const EdgeInsets.only(top: 0),

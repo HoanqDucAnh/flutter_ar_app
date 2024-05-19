@@ -1,12 +1,9 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_ar_app/core/initializer/app_initializer.dart';
 import 'package:flutter_ar_app/core/router/app_router.dart';
 import 'package:flutter_ar_app/shared/shared.dart';
 import 'package:flutter_ar_app/src/bloc/content_bloc/content_bloc.dart';
-import 'package:flutter_ar_app/src/controller/controller.dart';
 import 'package:flutter_ar_app/src/model/explore_card/explore_card.dart';
 import 'package:flutter_masonry_view/flutter_masonry_view.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -180,7 +177,8 @@ class _DetailPageTabState extends State<DetailPageTab> {
                 height: AppDimen.of(context).screenHeight * 0.65,
                 child: SingleChildScrollView(
                   child: Container(
-                    padding: layoutConstants.headerPadding,
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
                     width: AppDimen.of(context).screenWidth,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(
@@ -360,13 +358,6 @@ class _DetailPageTabState extends State<DetailPageTab> {
               child: SizedBox(
                 width: AppDimen.of(context).screenWidth,
                 height: AppDimen.of(context).screenHeight * 0.06,
-                // decoration: BoxDecoration(
-                //   color: appColors.linearColorPurple,
-                //   borderRadius: BorderRadius.only(
-                //     topLeft: layoutConstants.largeRadius,
-                //     topRight: layoutConstants.largeRadius,
-                //   ),
-                // ),
                 child: widget.exploreCard.type == ContentCategory.plane
                     ? InkWell(
                         child: Container(
