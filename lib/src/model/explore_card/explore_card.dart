@@ -9,6 +9,13 @@ class MuseumArtifactModel {
   final String? manufacturer;
   final WeaponType? weaponType;
   final List<String>? contentImg;
+  final String? modelUrl;
+  final String? question;
+  final String? answer1;
+  final String? result1;
+  final String? answer2;
+  final String? result2;
+  final double? scale;
 
   MuseumArtifactModel({
     required this.title,
@@ -19,6 +26,13 @@ class MuseumArtifactModel {
     this.contentImg,
     this.weaponType,
     this.manufacturer,
+    this.modelUrl,
+    this.question,
+    this.answer1,
+    this.result1,
+    this.answer2,
+    this.result2,
+    this.scale,
   });
 }
 

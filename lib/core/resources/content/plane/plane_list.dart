@@ -13,6 +13,13 @@ List<MuseumArtifactModel> planeList = [
     contentImg: [
       'lib/core/resources/images/content_images/plane_images/inner_images/mi4.jpg'
     ],
+    modelUrl: 'models.scnassets/helicopter2.dae',
+    question: 'Mẫu này có bao nhiêu chỗ ngồi?',
+    answer1: '4',
+    result1: 'FalseNode',
+    answer2: '7',
+    result2: 'TrueNode',
+    scale: 0.01,
   ),
   MuseumArtifactModel(
     title: 'Máy bay HL-2',
@@ -70,6 +77,13 @@ List<MuseumArtifactModel> planeList = [
     contentImg: [
       'lib/core/resources/images/content_images/plane_images/inner_images/an2.jpg'
     ],
+    modelUrl: 'models.scnassets/combatplane.dae',
+    question: 'Mẫu máy bay này có màu gì?',
+    answer1: 'Xanh Lá',
+    result1: 'TrueNode',
+    answer2: 'Trắng',
+    result2: 'FalseNode',
+    scale: 0.03,
   ),
   MuseumArtifactModel(
     title: 'Máy bay VNS-41',

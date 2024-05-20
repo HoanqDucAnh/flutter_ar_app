@@ -375,8 +375,19 @@ class _DetailPageTabState extends State<DetailPageTab> {
                           ),
                         ),
                         onTap: () {
+                          if (widget.exploreCard.modelUrl == null) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  'Không có mô hình 3D cho máy bay này',
+                                  style: appTextStyle.normalTextPrimary,
+                                ),
+                              ),
+                            );
+                            return;
+                          }
                           AutoRouter.of(context).push(
-                            const CameraRouteTab(),
+                            CameraRouteTab(artifact: widget.exploreCard),
                           );
                         },
                       )
