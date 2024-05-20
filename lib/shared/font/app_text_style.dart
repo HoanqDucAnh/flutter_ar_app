@@ -1,5 +1,3 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -65,8 +63,14 @@ class AppTextStyle {
   TextStyle get normalTextSecondary => _baseTextStyle.copyWith(
         fontSize: 14,
         fontWeight: FontWeight.w500,
-        color: _appColors.primaryColor,
+        color: _appColors.textSecondaryColor,
       );
+  TextStyle get subTitleTextPrimary => _baseTextStyle.copyWith(
+        fontSize: 14,
+        fontWeight: FontWeight.w400,
+        color: _appColors.secondaryColor,
+      );
+
   TextStyle get s12w400TextPrimary => s12TextPrimary(FontWeight.w400);
   TextStyle get s14w400TextPrimary => s14TextPrimary(FontWeight.w400);
   TextStyle get s16w400TextPrimary => s16TextPrimary(FontWeight.w400);

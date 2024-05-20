@@ -1,5 +1,7 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
+import 'package:flutter_ar_app/src/model/explore_card/explore_card.dart';
 import '../../src/view/view.dart';
 import '../../src/view/shared_widget/shared_widget.dart';
 
@@ -21,9 +23,6 @@ class AppRouter extends _$AppRouter {
             ]),
             AutoRoute(
               page: ExploreRouteTab.page,
-            ),
-            AutoRoute(
-              page: LessonRouteTab.page,
             ),
             AutoRoute(
               page: FavouriteRouteTab.page,

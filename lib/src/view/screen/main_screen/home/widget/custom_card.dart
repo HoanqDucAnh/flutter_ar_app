@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_ar_app/core/initializer/app_initializer.dart';
 import 'package:flutter_ar_app/shared/color/app_colors.dart';
 import 'package:flutter_ar_app/shared/constant/device_dimen.dart';
@@ -30,6 +32,7 @@ class CustomCard extends StatelessWidget {
             child: Image.asset(
               exploreCard.image,
               height: AppDimen.of(context).screenHeight * 0.4,
+              width: double.maxFinite,
               fit: BoxFit.cover,
             ),
           ),
@@ -38,27 +41,18 @@ class CustomCard extends StatelessWidget {
             left: 10.0,
             right: 10,
             child: Container(
+              decoration: BoxDecoration(
+                color: appColors.backgroundColor.withOpacity(0.8),
+                borderRadius: layoutConstants.smallBorderRadius,
+              ),
               padding: const EdgeInsets.all(8.0),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
                     exploreCard.title,
-                    style: appTextStyle.s14w400TextPrimary,
+                    style: appTextStyle.normalTextPrimary,
                   ),
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.location_on,
-                        color: appColors.iconColor,
-                        size: 16,
-                      ),
-                      Text(
-                        exploreCard.subtitle,
-                        style: appTextStyle.s12w400TextPrimary,
-                      ),
-                    ],
-                  )
                 ],
               ),
             ),

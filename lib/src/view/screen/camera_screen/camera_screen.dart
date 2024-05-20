@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter_ar_app/core/initializer/app_initializer.dart';
 import 'package:flutter_ar_app/src/bloc/bloc.dart';
+import 'package:flutter_ar_app/src/model/model.dart';
 import 'package:flutter_ar_app/src/view/view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -10,7 +11,12 @@ import './my_ar_screen.dart';
 
 @RoutePage()
 class CameraPageTab extends StatefulWidget {
-  const CameraPageTab({super.key});
+  final MuseumArtifactModel artifact;
+
+  const CameraPageTab({
+    super.key,
+    required this.artifact,
+  });
 
   @override
   State<CameraPageTab> createState() => _CameraPageTabState();
@@ -21,9 +27,16 @@ class _CameraPageTabState extends State<CameraPageTab> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('AR Experience'),
+        title: const Text(
+          'AR Experience',
+          style: TextStyle(
+            color: Colors.black,
+          ),
+        ),
       ),
-      body: MyARScreen(),
+      body: MyARScreen(
+        artifact: widget.artifact,
+      ),
     );
   }
 }

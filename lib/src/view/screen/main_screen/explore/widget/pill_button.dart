@@ -24,6 +24,7 @@ class PillButton extends StatelessWidget {
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 300),
         padding: layoutConstants.headerPadding,
+        margin: const EdgeInsets.only(right: 10),
         decoration: BoxDecoration(
           color: isSelected
               ? appColors.linearColorPurple

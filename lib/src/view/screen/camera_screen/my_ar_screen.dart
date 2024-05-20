@@ -1,28 +1,18 @@
 import 'dart:math' as math;
 import 'package:arkit_plugin/arkit_plugin.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_ar_app/src/model/model.dart';
 import 'package:vector_math/vector_math_64.dart' as vector;
 
-// class MyApp extends StatelessWidget {
-//   final String url1 = 'models.scnassets/spaceship.dae';
-//   const MyApp({super.key});
-
-//   // This widget is the root of your application.
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: 'Flutter Demo',
-//       theme: ThemeData(
-
-//         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-//         useMaterial3: true,
-//       ),
-//       home: MyHomePage(),
-//     );
-//   }
-// }
-
 class MyARScreen extends StatefulWidget {
+  final MuseumArtifactModel artifact;
+
+  const MyARScreen({
+    required this.artifact,
+    super.key
+  });
+
   @override
   State<MyARScreen> createState() => _MyARScreenState();
 }
@@ -52,19 +42,6 @@ class _MyARScreenState extends State<MyARScreen> {
       onARKitViewCreated: onARKitViewCreated
     );
   }
-  // => Scaffold(
-  //     appBar: AppBar(
-  //       title: const Text('ARKit in Flutter'),
-  //     ),
-  //     body: Container(
-  //       child: ARKitSceneView(
-  //         // showFeaturePoints: true,
-  //         enableTapRecognizer: true,
-  //         // planeDetection: ARPlaneDetection.horizontal,
-  //         onARKitViewCreated: onARKitViewCreated,
-  //       ),
-  //     )
-  //   );
 
   void onARKitViewCreated(ARKitController arkitController) {
     this.arkitController = arkitController;
@@ -96,7 +73,7 @@ class _MyARScreenState extends State<MyARScreen> {
 
   ARKitNode _createQuestion() {
     final text = ARKitText(
-      text: 'What is the color of this plane ?',
+      text: widget.artifact.question!,
       extrusionDepth: 1,
       materials: [
         ARKitMaterial(
@@ -107,14 +84,14 @@ class _MyARScreenState extends State<MyARScreen> {
     return ARKitNode(
       name: 'TextNode',
       geometry: text,
-      position: vector.Vector3(-0.3, 0.3, -1.4),
+      position: vector.Vector3(-0.3, 0.5, -1.4),
       scale: vector.Vector3(0.02, 0.02, 0.02),
     );
   }
 
   ARKitNode _createAnswer() {
     final text = ARKitText(
-      text: 'White',
+      text: widget.artifact.answer1!,
       extrusionDepth: 1,
       materials: [
         ARKitMaterial(
@@ -123,16 +100,16 @@ class _MyARScreenState extends State<MyARScreen> {
       ],
     );
     return ARKitNode(
-      name: 'TrueNode',
+      name: widget.artifact.result1,
       geometry: text,
-      position: vector.Vector3(-0.3, 0, -1.4),
+      position: vector.Vector3(-0.5, 0, -1.4),
       scale: vector.Vector3(0.02, 0.02, 0.02),
     );
   }
 
   ARKitNode _createAnswer2() {
     final text = ARKitText(
-      text: 'Green',
+      text: widget.artifact.answer2!,
       extrusionDepth: 1,
       materials: [
         ARKitMaterial(
@@ -141,9 +118,9 @@ class _MyARScreenState extends State<MyARScreen> {
       ],
     );
     return ARKitNode(
-      name: 'FalseNode',
+      name: widget.artifact.result2,
       geometry: text,
-      position: vector.Vector3(1, 0, -1.4),
+      position: vector.Vector3(1.2, 0, -1.4),
       scale: vector.Vector3(0.02, 0.02, 0.02),
     );
   }
@@ -153,15 +130,29 @@ class _MyARScreenState extends State<MyARScreen> {
     showDialog<void>(
       context: context,
       builder: (BuildContext context) =>
-        const AlertDialog(content: Text('Correct')),
+        const AlertDialog(
+          content: Text(
+            'Correct', 
+            style: TextStyle(
+              color: Colors.black,
+            ),
+        )
+      ),
     );
-    }
+  }
   else if (nodeNames.contains('FalseNode')) {
     showDialog<void>(
       context: context,
       builder: (BuildContext context) =>
-        const AlertDialog(content: Text('Incorrect')),
-    );
+        const AlertDialog(
+          content: Text(
+            'Incorrect', 
+            style: TextStyle(
+              color: Colors.black,
+            ),
+          ),
+        ),
+      );
     }
   }
 
@@ -171,9 +162,9 @@ class _MyARScreenState extends State<MyARScreen> {
       // controller.remove(node1!.name);
     }
     node = ARKitReferenceNode(
-      url: 'models.scnassets/combatplane.dae',
+      url: widget.artifact.modelUrl!,
       position: vector.Vector3(0, 0, 0),
-      scale: vector.Vector3.all(0.03),
+      scale: vector.Vector3.all(widget.artifact.scale!),
     );
     // node1 = ARKitReferenceNode(
     //   url: 'models.scnassets/dash.dae',
